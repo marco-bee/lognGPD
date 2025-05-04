@@ -1,0 +1,27 @@
+Package: lognGPD
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Marco", "Bee", , "marco.bee@unitn.it", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9579-3650"))
+Description: Estimation of a lognormal - Generalized Pareto mixture via the EM algorithm.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)
+LazyData: true
+RdMacros: Rdpack
+Imports:
+         MASS,
+		 evd,
+         pracma,
+         Rdpack,
+         parallel,
+         ks,
+         stats,
+         graphics
+URL: https://github.com/marco-bee/lognGPD
+BugReports: https://github.com/marco-bee/lognGPD/issues

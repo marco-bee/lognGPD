@@ -25,7 +25,6 @@
 
 EMlogngpdmix <- function(x0, y, maxiter)
 {
-  source("C:/Users/marco.bee/Dropbox/NCE/codes/weiGpdLik1.R")
   prior <- c(x0[1],1-x0[1])
   mu <- x0[2]
   sigma <- x0[3]
@@ -46,16 +45,13 @@ EMlogngpdmix <- function(x0, y, maxiter)
     f <- prior[1] * f1 + prior[2] * f2       # mixture density
     loglik <- sum(log(f))                  # evaluate log-likelihood function
     
-    # comment next line out if you don't want a protocol of the algorithm
-    # cat(format(c(nit, param, loglik), justify = "right"), fill = T)
     post[,1] <- prior[1] * f1 / f
     post[,2] <- prior[2] * f2 / f
     prior <- colMeans(post)              # M-step: prior probabilities
     
     mu <- post[,1] %*% log(y) / (N * prior[1])
     sigma <- sqrt(t(post[,1]) %*% (log(y)-as.vector(mu))^2 / (N*prior[1]))
-    # browser()
-    gpdpars = optim(c(xi,logbeta),weiGpdLik1,gr=NULL,y,post[,2],control=list(fnscale=-1))
+    gpdpars = optim(c(xi,logbeta),weiGpdLik,gr=NULL,y,post[,2],control=list(fnscale=-1))
     xi = gpdpars$par[1]
     logbeta = gpdpars$par[2]
 
@@ -63,8 +59,6 @@ EMlogngpdmix <- function(x0, y, maxiter)
     change <- max(abs(param - parold))           # test value for convergence
     nit <- nit + 1                               # increase iteration counter
   }
-  # if (nit >= maxiter)
-  #  cat("algorithm did not converge")   # warning message if convergence
   results <- list("p" = prior, "post" = post, "mu" = mu, "sigma " = sigma, "xi" = xi, "beta " = exp(logbeta), "loglik" = loglik, "nit" = nit)
   results
 }

@@ -16,12 +16,14 @@ LazyData: true
 RdMacros: Rdpack
 Imports:
          MASS,
-		 evd,
+		     evd,
          pracma,
          Rdpack,
          parallel,
          ks,
          stats,
-         graphics
+         graphics,
+         LNPar,
+         EnvStats
 URL: https://github.com/marco-bee/lognGPD
 BugReports: https://github.com/marco-bee/lognGPD/issues

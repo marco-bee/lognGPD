@@ -1,11 +1,14 @@
 #' Mixture estimation via EM
 #'
 #' This function estimates a static lognormal - generalized Pareto mixture
-#' by means of the EM algorithm.
+#' by means of the EM algorithm. Optionally, bootstrap standard errors are
+#' computed via parallel computing.
 #' @param x0 numerical vector (5x1): initial values of the parameters p,
 #' \eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}. 
 #' @param y vector: observed data.
 #' @param maxiter positive integer: maximum number of iterations of the EM algorithm.
+#' @param nboot positive integer: number of bootstrap replications for the
+#' computation of the standard errors (defaults to 0).
 #' @return a list with the following elements is returned:
 #' "p" = estimated value of p,
 #' "post" = posterior probabilities of all observations,
@@ -15,6 +18,8 @@
 #' "beta" = estimated value of \eqn{\beta},
 #' "loglik" = maximimzed log-likelihood,
 #' "nit" = number of iterations
+#' bootEst = parameter estimates at each bootstrap replications.
+#' bootStd = bootstrap standard errors of each parameter.
 #' @export
 #' @examples
 #' y <- rlognGPD(100,.9,0,1,0.5,2)
@@ -23,7 +28,7 @@
 #'
 #' @importFrom Rdpack reprompt
 
-EMlogngpdmix <- function(x0, y, maxiter)
+EMlogngpdmix <- function(x0, y, maxiter, nboot = 0)
 {
   prior <- c(x0[1],1-x0[1])
   mu <- x0[2]
@@ -59,6 +64,32 @@ EMlogngpdmix <- function(x0, y, maxiter)
     change <- max(abs(param - parold))           # test value for convergence
     nit <- nit + 1                               # increase iteration counter
   }
-  results <- list("p" = prior, "post" = post, "mu" = mu, "sigma " = sigma, "xi" = xi, "beta " = exp(logbeta), "loglik" = loglik, "nit" = nit)
-  results
+  if (nboot==0)
+  {
+    results <- list("p" = prior, "post" = post, "mu" = mu, "sigma " = sigma, "xi" = xi, "beta " = exp(logbeta), "loglik" = loglik, "nit" = nit)
+    return(results)
+  }
+  else
+  {
+    nreps.list <- sapply(1:nboot, list)
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    if (nzchar(chk) && chk == "TRUE") {
+      n.cores <- 2L
+    } else {
+      n.cores <- parallel::detectCores()
+    }
+    clust <- parallel::makeCluster(n.cores)
+    BootMat = matrix(0,nboot,5)
+    temp <- parallel::parLapply(clust,nreps.list, EMBoot,x0,y,maxiter)
+    parallel::stopCluster(cl=clust)
+    for (i in 1:nboot)
+    {
+      BootMat[i,] = as.vector(unlist(temp[[i]]))
+    }
+    stddev = apply(BootMat,2,sd,na.rm=TRUE)
+    results <- list("p" = prior, "post" = post, "mu" = mu, "sigma " = sigma, "xi" = xi, "beta " = exp(logbeta), "loglik" = loglik, "nit" = nit ,bootEst=BootMat,bootStd=stddev)
+    return(results)
+  }
+  
+  
 }

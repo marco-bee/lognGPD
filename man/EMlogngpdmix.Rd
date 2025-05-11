@@ -4,7 +4,7 @@
 \alias{EMlogngpdmix}
 \title{Mixture estimation via EM}
 \usage{
-EMlogngpdmix(x0, y, maxiter)
+EMlogngpdmix(x0, y, maxiter, nboot = 0)
 }
 \arguments{
 \item{x0}{numerical vector (5x1): initial values of the parameters p,
@@ -13,6 +13,9 @@ EMlogngpdmix(x0, y, maxiter)
 \item{y}{vector: observed data.}
 
 \item{maxiter}{positive integer: maximum number of iterations of the EM algorithm.}
+
+\item{nboot}{positive integer: number of bootstrap replications for the
+computation of the standard errors (defaults to 0).}
 }
 \value{
 a list with the following elements is returned:
@@ -24,10 +27,13 @@ a list with the following elements is returned:
 "beta" = estimated value of \eqn{\beta},
 "loglik" = maximimzed log-likelihood,
 "nit" = number of iterations
+bootEst = parameter estimates at each bootstrap replications.
+bootStd = bootstrap standard errors of each parameter.
 }
 \description{
 This function estimates a static lognormal - generalized Pareto mixture
-by means of the EM algorithm.
+by means of the EM algorithm. Optionally, bootstrap standard errors are
+computed via parallel computing.
 }
 \examples{
 y <- rlognGPD(100,.9,0,1,0.5,2)

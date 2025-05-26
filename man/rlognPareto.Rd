@@ -21,7 +21,7 @@ ysim (nreps x 1) vector: nreps random numbers from the
 truncated lognormal-Pareto spliced distribution.
 }
 \description{
-This function fits the continuous and differentiable
+This function simulates the continuous and differentiable
 version of the truncated lognormal-Pareto spliced distribution
 proposed by Scollnik (2007).
 }

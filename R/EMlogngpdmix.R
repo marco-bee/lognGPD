@@ -9,7 +9,7 @@
 #' @param maxiter positive integer: maximum number of iterations of the EM algorithm.
 #' @param nboot positive integer: number of bootstrap replications for the
 #' computation of the standard errors (defaults to 0).
-#' @return a list with the following elements is returned:
+#' @return A list with the following elements is returned:
 #' "p" = estimated value of p,
 #' "post" = posterior probabilities of all observations,
 #' "mu" = estimated value of \eqn{\mu},
@@ -17,9 +17,9 @@
 #' "xi" = estimated value of \eqn{\xi},
 #' "beta" = estimated value of \eqn{\beta},
 #' "loglik" = maximimzed log-likelihood,
-#' "nit" = number of iterations
-#' bootEst = parameter estimates at each bootstrap replications.
-#' bootStd = bootstrap standard errors of each parameter.
+#' "nit" = number of iterations,
+#' bootEst = matrix of parameter estimates at each bootstrap replications (only if nboot > 0).
+#' bootStd = bootstrap standard errors of each parameter (only if nboot > 0).
 #' @export
 #' @examples
 #' y <- rlognGPD(100,.9,0,1,0.5,2)

@@ -11,21 +11,21 @@ rlognGPD(n, p, mu, sigma, xi, beta)
 
 \item{p}{real, 0<p<1: prior probability}
 
-\item{mu}{real: log-mean of the truncated lognormal distribution.}
+\item{mu}{real: log-mean of the lognormal distribution.}
 
-\item{sigma}{positive real: log-standard deviation of the truncated
+\item{sigma}{positive real: log-standard deviation of the
 lognormal distribution.}
 
 \item{xi}{real: shape parameter of the generalized Pareto distribution.}
 
-\item{beta}{real: scale parameter of the generalized Pareto distribution.}
+\item{beta}{positive real: scale parameter of the generalized Pareto distribution.}
 }
 \value{
 ysim (n x 1) vector: n random numbers from the
 lognormal - generalized Pareto mixture.
 }
 \description{
-This function simulates the lognormal-GPD mixture.
+This function simulates a lognormal-GPD mixture.
 }
 \examples{
 ysim <- rlognGPD(100,.9,0,1,0.5,2)

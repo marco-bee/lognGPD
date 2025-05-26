@@ -17,10 +17,8 @@ RdMacros: Rdpack
 Imports:
          MASS,
 		     evd,
-         pracma,
          Rdpack,
          parallel,
-         ks,
          stats,
          graphics,
          LNPar,

@@ -18,7 +18,7 @@ lognormal distribution.}
 
 \item{xi}{real: shape parameter of the generalized Pareto distribution.}
 
-\item{beta}{real: scale parameter of the generalized Pareto distribution.}
+\item{beta}{positive real: scale parameter of the generalized Pareto distribution.}
 }
 \value{
 ydens (n x 1) vector: numerical values of the

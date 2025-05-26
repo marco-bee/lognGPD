@@ -16,7 +16,7 @@ and \eqn{\beta}.}
 of the observations (in the EM algorithm, posterior probabilities).}
 }
 \value{
-llik real number: numerical value of the log-likelihood
+llik real: numerical value of the log-likelihood
 function
 }
 \description{

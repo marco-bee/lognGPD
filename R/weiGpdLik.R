@@ -7,7 +7,7 @@
 #' @param y numerical vector (nx1): observed data.
 #' @param post numerical vector (nx1) with elements in (0,1): weights
 #' of the observations (in the EM algorithm, posterior probabilities).
-#' @return llik real number: numerical value of the log-likelihood
+#' @return llik real: numerical value of the log-likelihood
 #' function
 #' @export
 #' @examples

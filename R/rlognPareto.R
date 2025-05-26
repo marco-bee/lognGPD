@@ -1,6 +1,6 @@
 #' Simulation of the lognormal-Pareto spliced distribution
 #'
-#' This function fits the continuous and differentiable
+#' This function simulates the continuous and differentiable
 #' version of the truncated lognormal-Pareto spliced distribution
 #' proposed by Scollnik (2007).
 #' @param n positive integer: number of observations sampled.

@@ -10,7 +10,9 @@
 #' @param alpha positive real: shape parameterof the Pareto distribution.
 #' @return ysim (n x 1) vector: numerical values of the
 #' truncated lognormal-Pareto spliced distribution at x.
-#' @details See Scollnik (2007) for details.
+#' @details To get a continuous and differentiable density, it is necessary to enforce constraints that reduce the number
+#' of free parameters of the model; in particular, the mixing weight and the log-mean of the lognormal distirbution are
+#' functions of the reamining parameters. See Scollnik (2007) for details.
 #' @export
 #' @examples
 #' ysim <- dlognPareto(seq(0,20,length.out=500),1,5,2)

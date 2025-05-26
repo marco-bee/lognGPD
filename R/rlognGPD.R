@@ -1,13 +1,13 @@
 #' Simulation of the lognormal-GPD mixture
 #'
-#' This function simulates the lognormal-GPD mixture.
+#' This function simulates a lognormal-GPD mixture.
 #' @param n positive integer: number of observations sampled.
 #' @param p real, 0<p<1: prior probability 
-#' @param mu real: log-mean of the truncated lognormal distribution.
-#' @param sigma positive real: log-standard deviation of the truncated 
+#' @param mu real: log-mean of the lognormal distribution.
+#' @param sigma positive real: log-standard deviation of the 
 #' lognormal distribution.
 #' @param xi real: shape parameter of the generalized Pareto distribution.
-#' @param beta real: scale parameter of the generalized Pareto distribution.
+#' @param beta positive real: scale parameter of the generalized Pareto distribution.
 #' @return ysim (n x 1) vector: n random numbers from the
 #' lognormal - generalized Pareto mixture.
 #' @export

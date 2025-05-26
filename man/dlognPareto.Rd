@@ -26,7 +26,9 @@ differentiable version of the truncated lognormal-Pareto spliced
 distribution proposed by Scollnik (2007).
 }
 \details{
-See Scollnik (2007) for details.
+To get a continuous and differentiable density, it is necessary to enforce constraints that reduce the number
+of free parameters of the model; in particular, the mixing weight and the log-mean of the lognormal distirbution are
+functions of the reamining parameters. See Scollnik (2007) for details.
 }
 \examples{
 ysim <- dlognPareto(seq(0,20,length.out=500),1,5,2)

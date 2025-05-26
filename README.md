@@ -1,3 +1,27 @@
-# lognGPD
-Functions for the lognormal-GPD mixture
-This is a line from Rstudio
+
+## Overview
+
+The goal of lognGPD is to estimate a lognormal - Generalized Pareto
+mixture via the EM algorithm.
+
+## Installation
+
+You can install the development version of lognGPD from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("marco-bee/lognGPD")
+```
+
+## Example
+
+This is a basic example which shows you how to simulate and estimate a
+lognormal-GPD mixture:
+
+``` r
+library(lognGPD)
+y <- rlognGPD(100,.9,0,1,0.5,2)
+x0 <- c(.7,.2,1.3,.8,1.7)
+res <- EMlogngpdmix(x0, y, maxiter = 1000, nboot = 0)
+```

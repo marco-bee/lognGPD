@@ -18,7 +18,7 @@ EMlogngpdmix(x0, y, maxiter, nboot = 0)
 computation of the standard errors (defaults to 0).}
 }
 \value{
-a list with the following elements is returned:
+A list with the following elements is returned:
 "p" = estimated value of p,
 "post" = posterior probabilities of all observations,
 "mu" = estimated value of \eqn{\mu},
@@ -26,9 +26,9 @@ a list with the following elements is returned:
 "xi" = estimated value of \eqn{\xi},
 "beta" = estimated value of \eqn{\beta},
 "loglik" = maximimzed log-likelihood,
-"nit" = number of iterations
-bootEst = parameter estimates at each bootstrap replications.
-bootStd = bootstrap standard errors of each parameter.
+"nit" = number of iterations,
+bootEst = matrix of parameter estimates at each bootstrap replications (only if nboot > 0).
+bootStd = bootstrap standard errors of each parameter (only if nboot > 0).
 }
 \description{
 This function estimates a static lognormal - generalized Pareto mixture

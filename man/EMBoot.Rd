@@ -10,6 +10,9 @@ EMBoot(x, x0, y, maxiter)
 \item{x}{list: sequence of integers 1,...,K, where K is the mumber of datasets. Set x = 1 in case
 of a single dataset.}
 
+\item{x0}{numerical vector (5x1): initial values of the parameters p,
+\eqn{\mu}, \eqn{\sigma}, \eqn{\xi}, \eqn{\beta}.}
+
 \item{y}{numerical vector: observed sample.}
 
 \item{maxiter}{non-negative integer: maximum number of iterations of the EM algorithm.}

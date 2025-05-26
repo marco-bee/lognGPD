@@ -20,6 +20,7 @@
 #' "nit" = number of iterations,
 #' bootEst = matrix of parameter estimates at each bootstrap replications (only if nboot > 0).
 #' bootStd = bootstrap standard errors of each parameter (only if nboot > 0).
+#' @import evd
 #' @export
 #' @examples
 #' y <- rlognGPD(100,.9,0,1,0.5,2)

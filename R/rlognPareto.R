@@ -7,11 +7,11 @@
 #' @param sigma positive real: log-standard deviation of the truncated 
 #' lognormal distribution.
 #' @param xmin positive real: scale parameter of the Pareto distribution.
-#' @param alpha positive real: shape parameterof the Pareto distribution.
+#' @param alphapar positive real: shape parameterof the Pareto distribution.
 #' @return ysim (nreps x 1) vector: nreps random numbers from the
 #' truncated lognormal-Pareto spliced distribution.
 #' @details See Scollnik (2007) for details.
-#' @keywords dynamic mixture; simulation.
+#' @import stats
 #' @export
 #' @examples
 #' ysim <- rlognPareto(100,1,5,2)

@@ -10,6 +10,7 @@
 #' @param beta positive real: scale parameter of the generalized Pareto distribution.
 #' @return ydens (n x 1) vector: numerical values of the
 #' lognormal - generalized Pareto mixture at x.
+#' @import stats evd
 #' @export
 #' @examples
 #' ydens <- dlognGPD(seq(0,20,length.out=500),.9,0,1,0.5,2)

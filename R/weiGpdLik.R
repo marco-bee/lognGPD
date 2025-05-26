@@ -9,6 +9,7 @@
 #' of the observations (in the EM algorithm, posterior probabilities).
 #' @return llik real: numerical value of the log-likelihood
 #' function
+#' @import evd
 #' @export
 #' @examples
 #' y <- rlognGPD(100,.9,0,1,0.5,2)

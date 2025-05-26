@@ -14,7 +14,7 @@ lognormal distribution.}
 
 \item{xmin}{positive real: scale parameter of the Pareto distribution.}
 
-\item{alpha}{positive real: shape parameterof the Pareto distribution.}
+\item{alphapar}{positive real: shape parameterof the Pareto distribution.}
 }
 \value{
 ysim (nreps x 1) vector: nreps random numbers from the
@@ -36,6 +36,3 @@ ysim <- rlognPareto(100,1,5,2)
 \insertRef{scoll07}{lognGPD}
 }
 }
-\keyword{dynamic}
-\keyword{mixture;}
-\keyword{simulation.}

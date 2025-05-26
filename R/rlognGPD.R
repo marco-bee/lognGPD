@@ -10,6 +10,7 @@
 #' @param beta positive real: scale parameter of the generalized Pareto distribution.
 #' @return ysim (n x 1) vector: n random numbers from the
 #' lognormal - generalized Pareto mixture.
+#' @import stats
 #' @export
 #' @examples
 #' ysim <- rlognGPD(100,.9,0,1,0.5,2)

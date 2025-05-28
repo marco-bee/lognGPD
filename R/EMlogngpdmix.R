@@ -44,7 +44,6 @@ EMlogngpdmix <- function(x0, y, maxiter, nboot = 0)
   post <- matrix(0, N, 2)		# open matrix for posterior probabilities
   while (change > eps && nit <= maxiter)             # start iterations
   {
-    options(digits = 6)	    # format for the display of numerical results
     parold <- param                               # store old parameter values
     f1 <- dlnorm(y,mu,sigma)
     f2 <- evd::dgpd(y,0,exp(logbeta),xi)

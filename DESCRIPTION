@@ -4,9 +4,7 @@ Version: 0.1.0
 Authors@R: 
     person("Marco", "Bee", , "marco.bee@unitn.it", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9579-3650"))
-Description: Estimation of a lognormal - Generalized Pareto mixture via the Expectation-Maximization
-algorithm. Computation of bootstrap standard errors is supported and performed via parallel computing.
-Functions for random number simulation and density evaluation are also available.
+Description: Estimation of a lognormal - Generalized Pareto mixture via the Expectation-Maximization algorithm. Computation of bootstrap standard errors is supported and performed via parallel computing. Functions for random number simulation and density evaluation are also available. For more details see Bee and Santi (2025) <doi:10.48550/arXiv.2505.22507>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

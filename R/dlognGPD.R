@@ -9,7 +9,7 @@
 #' @param xi real: shape parameter of the generalized Pareto distribution.
 #' @param beta positive real: scale parameter of the generalized Pareto distribution.
 #' @return ydens (n x 1) vector: numerical values of the
-#' lognormal - generalized Pareto mixture at x.
+#' lognormal - generalized Pareto density function at x.
 #' @import stats evd
 #' @export
 #' @examples

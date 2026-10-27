@@ -22,7 +22,7 @@ lognormal distribution.}
 }
 \value{
 ydens (n x 1) vector: numerical values of the
-lognormal - generalized Pareto mixture at x.
+lognormal - generalized Pareto density function at x.
 }
 \description{
 This function evaluates the lognormal-GPD mixture density function.
